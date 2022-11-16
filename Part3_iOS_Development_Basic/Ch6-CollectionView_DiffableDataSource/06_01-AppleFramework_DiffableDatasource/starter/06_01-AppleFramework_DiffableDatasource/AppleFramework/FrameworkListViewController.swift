@@ -13,73 +13,44 @@ class FrameworkListViewController: UIViewController {
     
     let list: [AppleFramework] = AppleFramework.list
     
+    var dataSource: UICollectionViewDiffableDataSource<Section, Item>!
+    
+    typealias Item = AppleFramework
+    
+    enum Section {
+        case main
+    }
+    
     // Data, Presentation, Layout
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        
         navigationController?.navigationBar.topItem?.title = "☀️ Apple Frameworks"
         
-        if let flowlayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            flowlayout.estimatedItemSize = .zero
-        }
+        dataSource = UICollectionViewDiffableDataSource<Section, Item>(collectionView: collectionView, cellProvider: { collectionView, indexPath, item in
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FrameworkCell", for: indexPath) as? FrameworkCell else {
+                return nil
+            }
+            cell.configure(item)
+            return cell
+        })
         
-        collectionView.contentInset = UIEdgeInsets(top: 20, left: 16, bottom: 0, right: 16)
-    }
-}
-
-extension FrameworkListViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return list.count
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(list, toSection: .main)
+        dataSource.apply(snapshot)
+        
+        collectionView.collectionViewLayout = layout()
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FrameworkCell", for: indexPath) as? FrameworkCell else {
-            return UICollectionViewCell()
-        }
-        let framework = list[indexPath.item]
-        cell.configure(framework)
-        return cell
-    }
-}
-
-extension FrameworkListViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        // 3열일때 계산
-        let interItemSpacing: CGFloat = 10
-        let padding: CGFloat = 16
-
-        let width = (collectionView.bounds.width - interItemSpacing * 2 - padding * 2) / 3
-        let height = width * 1.5
-        return CGSize(width: width, height: height)
-        
-        
-//        // 2열일때 계산
-//        let interItemSpacing: CGFloat = 10
-//        let padding: CGFloat = 16
-//
-//        let width = (collectionView.bounds.width - interItemSpacing * 1 - padding * 2) / 2
-//        let height = width * 1.5
-//        return CGSize(width: width, height: height)
-//
-//        // 4열일때 계산
-//        let interItemSpacing: CGFloat = 10
-//        let padding: CGFloat = 16
-//
-//        let width = (collectionView.bounds.width - interItemSpacing * 3 - padding * 2) / 4
-//        let height = width * 1.5
-//        return CGSize(width: width, height: height)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+    private func layout() -> UICollectionViewCompositionalLayout {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.33), heightDimension: .fractionalWidth(1))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(0.45))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 3)
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16)
+        let layout = UICollectionViewCompositionalLayout(section: section)
+        return layout
     }
 }
 
