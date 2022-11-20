@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E50D8C6292A0D9000E8D366 /* QuickFocus.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E50D8C5292A0D9000E8D366 /* QuickFocus.storyboard */; };
+		1E50D8C8292A0DA000E8D366 /* QuickFocusListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E50D8C7292A0DA000E8D366 /* QuickFocusListViewController.swift */; };
+		1E50D8CA292A0F9C00E8D366 /* QuickFocusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E50D8C9292A0F9C00E8D366 /* QuickFocusCell.swift */; };
+		1E50D8CC292A153800E8D366 /* QuickFocusHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E50D8CB292A153800E8D366 /* QuickFocusHeaderView.swift */; };
 		94182266281E55DB00FB38F1 /* FocusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94182265281E55DB00FB38F1 /* FocusViewController.swift */; };
 		94182268281E583C00FB38F1 /* FocusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94182267281E583C00FB38F1 /* FocusCell.swift */; };
 		943BB54328150EFA005A1B6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943BB54228150EFA005A1B6E /* AppDelegate.swift */; };
@@ -39,6 +43,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E50D8C5292A0D9000E8D366 /* QuickFocus.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = QuickFocus.storyboard; sourceTree = "<group>"; };
+		1E50D8C7292A0DA000E8D366 /* QuickFocusListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickFocusListViewController.swift; sourceTree = "<group>"; };
+		1E50D8C9292A0F9C00E8D366 /* QuickFocusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickFocusCell.swift; sourceTree = "<group>"; };
+		1E50D8CB292A153800E8D366 /* QuickFocusHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickFocusHeaderView.swift; sourceTree = "<group>"; };
 		94182265281E55DB00FB38F1 /* FocusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusViewController.swift; sourceTree = "<group>"; };
 		94182267281E583C00FB38F1 /* FocusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusCell.swift; sourceTree = "<group>"; };
 		943BB53F28150EFA005A1B6E /* HeadSpaceFocus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeadSpaceFocus.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,7 +119,11 @@
 				943BB57628151183005A1B6E /* Focus.swift */,
 				94182267281E583C00FB38F1 /* FocusCell.swift */,
 				94DA3CA7281ECE3D0054FFC7 /* QuickFocus.swift */,
+				1E50D8C7292A0DA000E8D366 /* QuickFocusListViewController.swift */,
+				1E50D8C9292A0F9C00E8D366 /* QuickFocusCell.swift */,
+				1E50D8CB292A153800E8D366 /* QuickFocusHeaderView.swift */,
 				943BB54828150EFA005A1B6E /* Main.storyboard */,
+				1E50D8C5292A0D9000E8D366 /* QuickFocus.storyboard */,
 				943BB54B28150EFB005A1B6E /* Assets.xcassets */,
 				943BB54D28150EFB005A1B6E /* LaunchScreen.storyboard */,
 				943BB55028150EFB005A1B6E /* Info.plist */,
@@ -241,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				943BB54F28150EFB005A1B6E /* LaunchScreen.storyboard in Resources */,
+				1E50D8C6292A0D9000E8D366 /* QuickFocus.storyboard in Resources */,
 				943BB54C28150EFB005A1B6E /* Assets.xcassets in Resources */,
 				943BB54A28150EFA005A1B6E /* Main.storyboard in Resources */,
 			);
@@ -268,8 +281,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				94DA3CA8281ECE3D0054FFC7 /* QuickFocus.swift in Sources */,
+				1E50D8C8292A0DA000E8D366 /* QuickFocusListViewController.swift in Sources */,
 				943BB57728151183005A1B6E /* Focus.swift in Sources */,
 				943BB54328150EFA005A1B6E /* AppDelegate.swift in Sources */,
+				1E50D8CA292A0F9C00E8D366 /* QuickFocusCell.swift in Sources */,
+				1E50D8CC292A153800E8D366 /* QuickFocusHeaderView.swift in Sources */,
 				94182268281E583C00FB38F1 /* FocusCell.swift in Sources */,
 				943BB54528150EFA005A1B6E /* SceneDelegate.swift in Sources */,
 				94182266281E55DB00FB38F1 /* FocusViewController.swift in Sources */,
@@ -457,6 +473,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -485,6 +502,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
