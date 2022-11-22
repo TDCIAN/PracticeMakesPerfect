@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1EF47E99292D09D5003AFAFA /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 1EF47E98292D09D5003AFAFA /* SDWebImage */; };
+		1EF47E9C292D0A70003AFAFA /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF47E9B292D0A70003AFAFA /* SearchViewModel.swift */; };
 		941BDB172842567A00DF0BFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941BDB162842567A00DF0BFC /* AppDelegate.swift */; };
 		941BDB192842567A00DF0BFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941BDB182842567A00DF0BFC /* SceneDelegate.swift */; };
 		941BDB1E2842567A00DF0BFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 941BDB1C2842567A00DF0BFC /* Main.storyboard */; };
@@ -20,7 +22,6 @@
 		941BDB4D284256BA00DF0BFC /* Publisher+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941BDB4C284256B900DF0BFC /* Publisher+Utils.swift */; };
 		941BDB4F2842570D00DF0BFC /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941BDB4E2842570D00DF0BFC /* SearchViewController.swift */; };
 		941BDB512842574700DF0BFC /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941BDB502842574700DF0BFC /* UserProfile.swift */; };
-		941BDB582842623E00DF0BFC /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 941BDB572842623E00DF0BFC /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1EF47E9B292D0A70003AFAFA /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		941BDB132842567A00DF0BFC /* GithubUserProfile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubUserProfile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		941BDB162842567A00DF0BFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		941BDB182842567A00DF0BFC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,7 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				941BDB582842623E00DF0BFC /* Kingfisher in Frameworks */,
+				1EF47E99292D09D5003AFAFA /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +88,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1EF47E9A292D0A5B003AFAFA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				941BDB1C2842567A00DF0BFC /* Main.storyboard */,
+				941BDB4E2842570D00DF0BFC /* SearchViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		941BDB0A2842567A00DF0BFC = {
 			isa = PBXGroup;
 			children = (
@@ -113,12 +124,12 @@
 				941BDB182842567A00DF0BFC /* SceneDelegate.swift */,
 				941BDB4B284256B900DF0BFC /* Utils */,
 				941BDB46284256AD00DF0BFC /* Network */,
-				941BDB1C2842567A00DF0BFC /* Main.storyboard */,
-				941BDB4E2842570D00DF0BFC /* SearchViewController.swift */,
+				1EF47E9A292D0A5B003AFAFA /* View */,
 				941BDB52284257DC00DF0BFC /* Model */,
 				941BDB1F2842567B00DF0BFC /* Assets.xcassets */,
 				941BDB212842567B00DF0BFC /* LaunchScreen.storyboard */,
 				941BDB242842567B00DF0BFC /* Info.plist */,
+				1EF47E9B292D0A70003AFAFA /* SearchViewModel.swift */,
 			);
 			path = GithubUserProfile;
 			sourceTree = "<group>";
@@ -182,7 +193,7 @@
 			);
 			name = GithubUserProfile;
 			packageProductDependencies = (
-				941BDB572842623E00DF0BFC /* Kingfisher */,
+				1EF47E98292D09D5003AFAFA /* SDWebImage */,
 			);
 			productName = GithubUserProfile;
 			productReference = 941BDB132842567A00DF0BFC /* GithubUserProfile.app */;
@@ -257,7 +268,7 @@
 			);
 			mainGroup = 941BDB0A2842567A00DF0BFC;
 			packageReferences = (
-				941BDB562842623E00DF0BFC /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				1EF47E97292D09D5003AFAFA /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 941BDB142842567A00DF0BFC /* Products */;
 			projectDirPath = "";
@@ -304,6 +315,7 @@
 			files = (
 				941BDB4F2842570D00DF0BFC /* SearchViewController.swift in Sources */,
 				941BDB512842574700DF0BFC /* UserProfile.swift in Sources */,
+				1EF47E9C292D0A70003AFAFA /* SearchViewModel.swift in Sources */,
 				941BDB172842567A00DF0BFC /* AppDelegate.swift in Sources */,
 				941BDB49284256AD00DF0BFC /* NetworkService.swift in Sources */,
 				941BDB4A284256AD00DF0BFC /* Resource.swift in Sources */,
@@ -414,7 +426,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -468,7 +480,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -652,21 +664,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		941BDB562842623E00DF0BFC /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		1EF47E97292D09D5003AFAFA /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
 			requirement = {
-				kind = exactVersion;
-				version = 7.2.2;
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		941BDB572842623E00DF0BFC /* Kingfisher */ = {
+		1EF47E98292D09D5003AFAFA /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 941BDB562842623E00DF0BFC /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
+			package = 1EF47E97292D09D5003AFAFA /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
