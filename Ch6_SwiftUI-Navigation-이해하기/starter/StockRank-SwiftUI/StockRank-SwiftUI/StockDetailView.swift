@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StockDetailView: View {
-    var stock: StockModel
+    @Binding var stock: StockModel
     
     var body: some View {
         VStack(spacing: 40) {
@@ -22,11 +22,5 @@ struct StockDetailView: View {
                 .font(.system(size: 20, weight: .bold))
                 .foregroundColor(stock.diff > 0 ? .red : .blue)
         }
-    }
-}
-
-struct StockDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        StockDetailView(stock: StockModel.list[0])
     }
 }
