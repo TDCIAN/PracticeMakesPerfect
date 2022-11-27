@@ -11,6 +11,8 @@ class BenefitListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.title = "혜택"
 
     }
 
