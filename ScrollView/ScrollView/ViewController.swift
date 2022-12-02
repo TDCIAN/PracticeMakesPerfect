@@ -74,10 +74,10 @@ class ViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             firstView.widthAnchor.constraint(equalTo: stackView.widthAnchor),
-            firstView.heightAnchor.constraint(equalToConstant: 700),
+            firstView.heightAnchor.constraint(equalToConstant: 200),
             
             secondView.widthAnchor.constraint(equalTo: stackView.widthAnchor),
-            secondView.heightAnchor.constraint(equalToConstant: 700),
+            secondView.heightAnchor.constraint(equalToConstant: 200),
             
             thirdView.widthAnchor.constraint(equalTo: stackView.widthAnchor),
             thirdView.heightAnchor.constraint(equalToConstant: 700),
