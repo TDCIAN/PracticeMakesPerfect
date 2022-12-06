@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class ViewController: UIViewController {
     
@@ -51,7 +52,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setLayout()
+//        setLayout()
+        setLayoutWithSnapKit()
     }
 
     private func setLayout() {
@@ -83,6 +85,30 @@ class ViewController: UIViewController {
             thirdView.heightAnchor.constraint(equalToConstant: 700),
         ])
 
+    }
+    
+    private func setLayoutWithSnapKit() {
+        view.addSubview(scrollView)
+        scrollView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        scrollView.addSubview(stackView)
+        stackView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+            $0.width.equalTo(scrollView)
+        }
+        firstView.snp.makeConstraints {
+            $0.width.equalTo(stackView)
+            $0.height.equalTo(200)
+        }
+        secondView.snp.makeConstraints {
+            $0.width.equalTo(stackView)
+            $0.height.equalTo(200)
+        }
+        thirdView.snp.makeConstraints {
+            $0.width.equalTo(stackView)
+            $0.height.equalTo(700)
+        }
     }
 
 }
