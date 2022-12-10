@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E535DEC294457F400B6963E /* MoodDiaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E535DEB294457F400B6963E /* MoodDiaryCell.swift */; };
+		1E535DEE2944595000B6963E /* DiaryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E535DED2944595000B6963E /* DiaryListViewModel.swift */; };
 		948F9013287008D100F90257 /* EmotionDiaryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948F9012287008D100F90257 /* EmotionDiaryApp.swift */; };
 		948F9015287008D100F90257 /* DiaryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948F9014287008D100F90257 /* DiaryListView.swift */; };
 		948F9017287008D200F90257 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 948F9016287008D200F90257 /* Assets.xcassets */; };
@@ -42,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E535DEB294457F400B6963E /* MoodDiaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodDiaryCell.swift; sourceTree = "<group>"; };
+		1E535DED2944595000B6963E /* DiaryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListViewModel.swift; sourceTree = "<group>"; };
 		948F900F287008D100F90257 /* EmotionDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmotionDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		948F9012287008D100F90257 /* EmotionDiaryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionDiaryApp.swift; sourceTree = "<group>"; };
 		948F9014287008D100F90257 /* DiaryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListView.swift; sourceTree = "<group>"; };
@@ -151,6 +155,8 @@
 			isa = PBXGroup;
 			children = (
 				948F9014287008D100F90257 /* DiaryListView.swift */,
+				1E535DED2944595000B6963E /* DiaryListViewModel.swift */,
+				1E535DEB294457F400B6963E /* MoodDiaryCell.swift */,
 			);
 			path = "Diary List";
 			sourceTree = "<group>";
@@ -321,6 +327,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E535DEC294457F400B6963E /* MoodDiaryCell.swift in Sources */,
 				948F9015287008D100F90257 /* DiaryListView.swift in Sources */,
 				948F9013287008D100F90257 /* EmotionDiaryApp.swift in Sources */,
 				948F905528700A8800F90257 /* MoodDiaryStorage.swift in Sources */,
@@ -328,6 +335,7 @@
 				948F9048287009DA00F90257 /* DiaryDetailsView.swift in Sources */,
 				948F904F28700A2C00F90257 /* Mood.swift in Sources */,
 				948F905428700A8800F90257 /* Storage.swift in Sources */,
+				1E535DEE2944595000B6963E /* DiaryListViewModel.swift in Sources */,
 				948F904D28700A1700F90257 /* MoodDiary.swift in Sources */,
 				948F9046287009CB00F90257 /* DiaryTextInputView.swift in Sources */,
 				948F9042287009AE00F90257 /* DiaryDateInputView.swift in Sources */,
