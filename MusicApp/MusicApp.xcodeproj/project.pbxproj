@@ -9,21 +9,41 @@
 /* Begin PBXBuildFile section */
 		1EC1651F2948A5A500BFF9CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC1651E2948A5A500BFF9CB /* AppDelegate.swift */; };
 		1EC165212948A5A500BFF9CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC165202948A5A500BFF9CB /* SceneDelegate.swift */; };
-		1EC165232948A5A500BFF9CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC165222948A5A500BFF9CB /* ViewController.swift */; };
+		1EC165232948A5A500BFF9CB /* TrackListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC165222948A5A500BFF9CB /* TrackListViewController.swift */; };
 		1EC165262948A5A500BFF9CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EC165242948A5A500BFF9CB /* Main.storyboard */; };
 		1EC165282948A5A600BFF9CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EC165272948A5A600BFF9CB /* Assets.xcassets */; };
 		1EC1652B2948A5A600BFF9CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EC165292948A5A600BFF9CB /* LaunchScreen.storyboard */; };
+		1EC1653B2948A6A900BFF9CB /* The Harlem Barber Swing.mov in Resources */ = {isa = PBXBuildFile; fileRef = 1EC165332948A6A700BFF9CB /* The Harlem Barber Swing.mov */; };
+		1EC1653C2948A6A900BFF9CB /* 7 rings.mov in Resources */ = {isa = PBXBuildFile; fileRef = 1EC165342948A6A800BFF9CB /* 7 rings.mov */; };
+		1EC1653D2948A6A900BFF9CB /* thank u, next.mov in Resources */ = {isa = PBXBuildFile; fileRef = 1EC165352948A6A800BFF9CB /* thank u, next.mov */; };
+		1EC1653E2948A6A900BFF9CB /* Believer.mov in Resources */ = {isa = PBXBuildFile; fileRef = 1EC165362948A6A800BFF9CB /* Believer.mov */; };
+		1EC1653F2948A6A900BFF9CB /* Dip.mov in Resources */ = {isa = PBXBuildFile; fileRef = 1EC165372948A6A900BFF9CB /* Dip.mov */; };
+		1EC165402948A6A900BFF9CB /* Swish.mov in Resources */ = {isa = PBXBuildFile; fileRef = 1EC165382948A6A900BFF9CB /* Swish.mov */; };
+		1EC165412948A6A900BFF9CB /* Blue Birds.mov in Resources */ = {isa = PBXBuildFile; fileRef = 1EC165392948A6A900BFF9CB /* Blue Birds.mov */; };
+		1EC165422948A6A900BFF9CB /* Best Mistake.mov in Resources */ = {isa = PBXBuildFile; fileRef = 1EC1653A2948A6A900BFF9CB /* Best Mistake.mov */; };
+		1EC165442948A71600BFF9CB /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC165432948A71600BFF9CB /* Track.swift */; };
+		1EC165462948AC6A00BFF9CB /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC165452948AC6A00BFF9CB /* PlayerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1EC1651B2948A5A500BFF9CB /* MusicApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EC1651E2948A5A500BFF9CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1EC165202948A5A500BFF9CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1EC165222948A5A500BFF9CB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1EC165222948A5A500BFF9CB /* TrackListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackListViewController.swift; sourceTree = "<group>"; };
 		1EC165252948A5A500BFF9CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1EC165272948A5A600BFF9CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1EC1652A2948A5A600BFF9CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1EC1652C2948A5A600BFF9CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1EC165332948A6A700BFF9CB /* The Harlem Barber Swing.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "The Harlem Barber Swing.mov"; sourceTree = "<group>"; };
+		1EC165342948A6A800BFF9CB /* 7 rings.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "7 rings.mov"; sourceTree = "<group>"; };
+		1EC165352948A6A800BFF9CB /* thank u, next.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "thank u, next.mov"; sourceTree = "<group>"; };
+		1EC165362948A6A800BFF9CB /* Believer.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Believer.mov; sourceTree = "<group>"; };
+		1EC165372948A6A900BFF9CB /* Dip.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Dip.mov; sourceTree = "<group>"; };
+		1EC165382948A6A900BFF9CB /* Swish.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Swish.mov; sourceTree = "<group>"; };
+		1EC165392948A6A900BFF9CB /* Blue Birds.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "Blue Birds.mov"; sourceTree = "<group>"; };
+		1EC1653A2948A6A900BFF9CB /* Best Mistake.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "Best Mistake.mov"; sourceTree = "<group>"; };
+		1EC165432948A71600BFF9CB /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		1EC165452948AC6A00BFF9CB /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +76,33 @@
 		1EC1651D2948A5A500BFF9CB /* MusicApp */ = {
 			isa = PBXGroup;
 			children = (
+				1EC165322948A69700BFF9CB /* musics */,
 				1EC1651E2948A5A500BFF9CB /* AppDelegate.swift */,
 				1EC165202948A5A500BFF9CB /* SceneDelegate.swift */,
-				1EC165222948A5A500BFF9CB /* ViewController.swift */,
+				1EC165222948A5A500BFF9CB /* TrackListViewController.swift */,
+				1EC165432948A71600BFF9CB /* Track.swift */,
+				1EC165452948AC6A00BFF9CB /* PlayerViewController.swift */,
 				1EC165242948A5A500BFF9CB /* Main.storyboard */,
 				1EC165272948A5A600BFF9CB /* Assets.xcassets */,
 				1EC165292948A5A600BFF9CB /* LaunchScreen.storyboard */,
 				1EC1652C2948A5A600BFF9CB /* Info.plist */,
 			);
 			path = MusicApp;
+			sourceTree = "<group>";
+		};
+		1EC165322948A69700BFF9CB /* musics */ = {
+			isa = PBXGroup;
+			children = (
+				1EC165342948A6A800BFF9CB /* 7 rings.mov */,
+				1EC165362948A6A800BFF9CB /* Believer.mov */,
+				1EC1653A2948A6A900BFF9CB /* Best Mistake.mov */,
+				1EC165392948A6A900BFF9CB /* Blue Birds.mov */,
+				1EC165372948A6A900BFF9CB /* Dip.mov */,
+				1EC165382948A6A900BFF9CB /* Swish.mov */,
+				1EC165352948A6A800BFF9CB /* thank u, next.mov */,
+				1EC165332948A6A700BFF9CB /* The Harlem Barber Swing.mov */,
+			);
+			path = musics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,8 +164,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EC1652B2948A5A600BFF9CB /* LaunchScreen.storyboard in Resources */,
+				1EC1653C2948A6A900BFF9CB /* 7 rings.mov in Resources */,
+				1EC1653E2948A6A900BFF9CB /* Believer.mov in Resources */,
 				1EC165282948A5A600BFF9CB /* Assets.xcassets in Resources */,
+				1EC1653F2948A6A900BFF9CB /* Dip.mov in Resources */,
+				1EC165422948A6A900BFF9CB /* Best Mistake.mov in Resources */,
 				1EC165262948A5A500BFF9CB /* Main.storyboard in Resources */,
+				1EC1653B2948A6A900BFF9CB /* The Harlem Barber Swing.mov in Resources */,
+				1EC1653D2948A6A900BFF9CB /* thank u, next.mov in Resources */,
+				1EC165412948A6A900BFF9CB /* Blue Birds.mov in Resources */,
+				1EC165402948A6A900BFF9CB /* Swish.mov in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,9 +184,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EC165232948A5A500BFF9CB /* ViewController.swift in Sources */,
+				1EC165232948A5A500BFF9CB /* TrackListViewController.swift in Sources */,
 				1EC1651F2948A5A500BFF9CB /* AppDelegate.swift in Sources */,
 				1EC165212948A5A500BFF9CB /* SceneDelegate.swift in Sources */,
+				1EC165442948A71600BFF9CB /* Track.swift in Sources */,
+				1EC165462948AC6A00BFF9CB /* PlayerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +345,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -325,6 +374,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
