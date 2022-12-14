@@ -10,6 +10,12 @@ import SnapKit
 
 class ViewController: UIViewController {
     
+    private lazy var displayView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemBlue
+        return view
+    }()
+    
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -59,7 +65,7 @@ class ViewController: UIViewController {
     private func setLayout() {
         view.addSubview(scrollView)
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.topAnchor.constraint(equalTo: displayView.bottomAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -88,9 +94,16 @@ class ViewController: UIViewController {
     }
     
     private func setLayoutWithSnapKit() {
+        view.addSubview(displayView)
+        displayView.snp.makeConstraints {
+            $0.top.leading.trailing.equalToSuperview()
+            $0.height.equalTo(view.frame.width * 0.57)
+        }
+        
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.top.equalTo(displayView.snp.bottom)
+            $0.leading.trailing.bottom.equalToSuperview()
         }
         scrollView.addSubview(stackView)
         stackView.snp.makeConstraints {
