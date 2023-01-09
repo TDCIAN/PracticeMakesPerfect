@@ -66,6 +66,9 @@
 		1E1766CD29364AF0003A8DD6 /* GitHubRepository */ = {
 			isa = PBXGroup;
 			children = (
+				1E4268CE296C515B00804EBC /* ViewModel */,
+				1E4268CD296C515700804EBC /* View */,
+				1E4268CC296C515000804EBC /* Model */,
 				1E1766CE29364AF0003A8DD6 /* AppDelegate.swift */,
 				1E1766D029364AF0003A8DD6 /* SceneDelegate.swift */,
 				1E1766EC29364B9F003A8DD6 /* RepositoryListViewController.swift */,
@@ -76,6 +79,27 @@
 				1E1766DC29364AF1003A8DD6 /* Info.plist */,
 			);
 			path = GitHubRepository;
+			sourceTree = "<group>";
+		};
+		1E4268CC296C515000804EBC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1E4268CD296C515700804EBC /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1E4268CE296C515B00804EBC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
