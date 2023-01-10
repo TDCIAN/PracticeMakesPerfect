@@ -19,6 +19,7 @@ final class RepositoryListCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        self.selectionStyle = .none
         [
             nameLabel, descriptionLabel,
             starImageView, starLabel, languageLabel
