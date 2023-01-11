@@ -26,7 +26,7 @@ final class RepositoryListViewController: UITableViewController {
     }
     
     @objc func refresh() {
-        
+        print("refresh")
     }
 }
 
