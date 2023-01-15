@@ -71,9 +71,6 @@
 				1E4268CC296C515000804EBC /* Model */,
 				1E1766CE29364AF0003A8DD6 /* AppDelegate.swift */,
 				1E1766D029364AF0003A8DD6 /* SceneDelegate.swift */,
-				1E1766EC29364B9F003A8DD6 /* RepositoryListViewController.swift */,
-				1E1766EE29364BFB003A8DD6 /* RepositoryListCell.swift */,
-				1E6533F729378B36008DC203 /* Repository.swift */,
 				1E1766D729364AF1003A8DD6 /* Assets.xcassets */,
 				1E1766D929364AF1003A8DD6 /* LaunchScreen.storyboard */,
 				1E1766DC29364AF1003A8DD6 /* Info.plist */,
@@ -84,6 +81,7 @@
 		1E4268CC296C515000804EBC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1E6533F729378B36008DC203 /* Repository.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -91,6 +89,8 @@
 		1E4268CD296C515700804EBC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1E1766EC29364B9F003A8DD6 /* RepositoryListViewController.swift */,
+				1E1766EE29364BFB003A8DD6 /* RepositoryListCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
