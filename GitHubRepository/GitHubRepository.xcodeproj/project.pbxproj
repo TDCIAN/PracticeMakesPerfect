@@ -18,6 +18,7 @@
 		1E1766ED29364B9F003A8DD6 /* RepositoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1766EC29364B9F003A8DD6 /* RepositoryListViewController.swift */; };
 		1E1766EF29364BFB003A8DD6 /* RepositoryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1766EE29364BFB003A8DD6 /* RepositoryListCell.swift */; };
 		1E6533F829378B36008DC203 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6533F729378B36008DC203 /* Repository.swift */; };
+		1EBC4947297578A5004CC1EF /* RepositoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBC4946297578A5004CC1EF /* RepositoryViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		1E1766EC29364B9F003A8DD6 /* RepositoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewController.swift; sourceTree = "<group>"; };
 		1E1766EE29364BFB003A8DD6 /* RepositoryListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListCell.swift; sourceTree = "<group>"; };
 		1E6533F729378B36008DC203 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		1EBC4946297578A5004CC1EF /* RepositoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 		1E4268CE296C515B00804EBC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				1EBC4946297578A5004CC1EF /* RepositoryViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 			files = (
 				1E1766CF29364AF0003A8DD6 /* AppDelegate.swift in Sources */,
 				1E1766D129364AF0003A8DD6 /* SceneDelegate.swift in Sources */,
+				1EBC4947297578A5004CC1EF /* RepositoryViewModel.swift in Sources */,
 				1E6533F829378B36008DC203 /* Repository.swift in Sources */,
 				1E1766ED29364B9F003A8DD6 /* RepositoryListViewController.swift in Sources */,
 				1E1766EF29364BFB003A8DD6 /* RepositoryListCell.swift in Sources */,
