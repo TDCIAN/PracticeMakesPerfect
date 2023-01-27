@@ -41,3 +41,20 @@ decode(json: json1)
         }
         
     }.disposed(by: disposeBag)
+
+
+let replaySubject = ReplaySubject<String>.create(bufferSize: 2)
+replaySubject.onNext("1. 여러분")
+replaySubject.onNext("2. 힘내세요")
+replaySubject.onNext("3. 어렵지만")
+
+replaySubject.subscribe {
+    print("첫번째 구독: \($0)")
+}.disposed(by: disposeBag)
+
+replaySubject.subscribe {
+    print("두번째 구독: \($0)")
+}.disposed(by: disposeBag)
+
+replaySubject.onNext("4. 할 수 있어요")
+
