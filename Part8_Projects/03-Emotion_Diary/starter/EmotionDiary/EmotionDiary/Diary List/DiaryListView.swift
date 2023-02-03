@@ -35,9 +35,6 @@ struct DiaryListView: View {
                 }
                 
             }
-            .onAppear {
-                print("앱 켜짐")
-            }
         }
     }
 }
