@@ -61,7 +61,8 @@ class MainActivity : AppCompatActivity() {
             when (state) {
                 State.RELEASE -> {
                     onPlay(true)
-                } else -> {
+                }
+                else -> {
 
                 }
             }
@@ -71,7 +72,8 @@ class MainActivity : AppCompatActivity() {
             when (state) {
                 State.PLAYING -> {
                     onPlay(false)
-                } else -> {
+                }
+                else -> {
                     // do nothing
                 }
             }
@@ -110,7 +112,7 @@ class MainActivity : AppCompatActivity() {
         stopRecording()
     }
 
-    private fun onPlay(start: Boolean) = if(start) startPlaying() else stopPlaying()
+    private fun onPlay(start: Boolean) = if (start) startPlaying() else stopPlaying()
 
     private fun startRecording() {
         state = State.RECORDING
@@ -157,7 +159,8 @@ class MainActivity : AppCompatActivity() {
                 R.drawable.ic_baseline_fiber_manual_record_24
             )
         )
-        binding.recordButton.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.red))
+        binding.recordButton.imageTintList =
+            ColorStateList.valueOf(ContextCompat.getColor(this, R.color.red))
         binding.playButton.isEnabled = true
         binding.playButton.alpha = 1.0f
     }
@@ -169,7 +172,7 @@ class MainActivity : AppCompatActivity() {
             try {
                 setDataSource(fileName)
                 prepare()
-            } catch(e: IOException) {
+            } catch (e: IOException) {
                 Log.e("APP", "media player prepare failed $e")
             }
             start()
