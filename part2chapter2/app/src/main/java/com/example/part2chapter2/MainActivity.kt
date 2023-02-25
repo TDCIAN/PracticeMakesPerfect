@@ -132,6 +132,8 @@ class MainActivity : AppCompatActivity() {
             start()
         }
 
+        recorder?.maxAmplitude?.toFloat()
+
         binding.recordButton.setImageDrawable(
             ContextCompat.getDrawable(
                 this,
