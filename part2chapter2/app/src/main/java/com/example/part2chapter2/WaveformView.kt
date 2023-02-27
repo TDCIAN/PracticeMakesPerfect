@@ -26,4 +26,12 @@ class WaveformView @JvmOverloads constructor(
         canvas?.drawRect(rectF, redPaint)
     }
 
+    fun addAmplitude(maxAmplitude: Float) {
+        rectF.top = 0f
+        rectF.bottom = maxAmplitude
+        rectF.left = 0f
+        rectF.right = rectF.left + 20f
+
+        invalidate()
+    }
 }

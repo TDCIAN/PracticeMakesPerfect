@@ -19,7 +19,7 @@ import androidx.core.content.ContextCompat
 import com.example.part2chapter2.databinding.ActivityMainBinding
 import java.io.IOException
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), OnTimerTickListener {
 
     companion object {
         private const val REQUEST_RECORD_AUDIO_CODE = 200
@@ -30,6 +30,8 @@ class MainActivity : AppCompatActivity() {
     private enum class State {
         RELEASE, RECORDING, PLAYING
     }
+
+    private lateinit var timer: Timer
 
     private lateinit var binding: ActivityMainBinding
     private var recorder: MediaRecorder? = null
@@ -43,6 +45,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         fileName = "${externalCacheDir?.absolutePath}/audiorecordtest.3gp"
+        timer = Timer(this)
+
         binding.recordButton.setOnClickListener {
             when (state) {
                 State.RELEASE -> {
@@ -132,6 +136,8 @@ class MainActivity : AppCompatActivity() {
             start()
         }
 
+        timer.start()
+
         recorder?.maxAmplitude?.toFloat()
 
         binding.recordButton.setImageDrawable(
@@ -153,6 +159,9 @@ class MainActivity : AppCompatActivity() {
             release()
         }
         recorder = null
+
+        timer.stop()
+
         state = State.RELEASE
 
         binding.recordButton.setImageDrawable(
@@ -256,5 +265,9 @@ class MainActivity : AppCompatActivity() {
                 showPermissionSettingDialog()
             }
         }
+    }
+
+    override fun onTick(duration: Long) {
+        binding.waveformView.addAmplitude(recorder?.maxAmplitude?.toFloat() ?: 0f)
     }
 }
