@@ -15,6 +15,9 @@ class WaveformView @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ): View(context, attrs, defStyleAttr) {
 
+    private var ampList = mutableListOf<Float>()
+    private var rectList = mutableListOf<RectF>()
+
     val rectF = RectF(20f, 30f, 20f + 30f, 30f + 60f)
     val redPaint = Paint().apply {
         color = Color.RED
@@ -27,10 +30,24 @@ class WaveformView @JvmOverloads constructor(
     }
 
     fun addAmplitude(maxAmplitude: Float) {
-        rectF.top = 0f
-        rectF.bottom = maxAmplitude
-        rectF.left = 0f
-        rectF.right = rectF.left + 20f
+
+        ampList.add(maxAmplitude)
+        rectList.clear()
+
+        val rectWidth = 10f
+        val maxRect = (this.width / rectWidth).toInt()
+
+        val amps = ampList.takeLast(maxRect)
+
+        for ((i, amp) in amps.withIndex()) {
+            val rectF = RectF()
+            rectF.top = 0f
+            rectF.bottom = amp
+            rectF.left = i * rectWidth
+            rectF.right = rectF.left + rectWidth
+
+            rectList.add(rectF)
+        }
 
         invalidate()
     }
