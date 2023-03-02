@@ -15,10 +15,12 @@ class WaveformView @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ): View(context, attrs, defStyleAttr) {
 
-    private var ampList = mutableListOf<Float>()
-    private var rectList = mutableListOf<RectF>()
+    private val ampList = mutableListOf<Float>()
+    private val rectList = mutableListOf<RectF>()
 
-    val rectF = RectF(20f, 30f, 20f + 30f, 30f + 60f)
+    private val rectWidth = 10f
+    private var tick = 0
+
     val redPaint = Paint().apply {
         color = Color.RED
     }
@@ -26,7 +28,9 @@ class WaveformView @JvmOverloads constructor(
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
 
-        canvas?.drawRect(rectF, redPaint)
+        for(rectF in rectList) {
+            canvas?.drawRect(rectF, redPaint)
+        }
     }
 
     fun addAmplitude(maxAmplitude: Float) {
@@ -49,6 +53,37 @@ class WaveformView @JvmOverloads constructor(
             rectList.add(rectF)
         }
 
+        invalidate()
+    }
+
+    fun replayAmplitude(duration: Int) {
+        rectList.clear()
+
+        val maxRect = (this.width / rectWidth).toInt()
+        val amps = ampList.take(tick).takeLast(maxRect)
+
+        for ((i, amp) in amps.withIndex()) {
+            val rectF = RectF()
+            rectF.top = 0f
+            rectF.bottom = amp
+            rectF.left = i * rectWidth
+            rectF.right = rectF.left + rectWidth
+
+            rectList.add(rectF)
+        }
+
+        tick++
+
+        invalidate()
+    }
+
+    fun clearData() {
+        ampList.clear()
+    }
+
+    fun clearWave() {
+        rectList.clear()
+        tick = 0
         invalidate()
     }
 }
