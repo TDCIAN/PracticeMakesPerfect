@@ -281,7 +281,7 @@ class MainActivity : AppCompatActivity(), OnTimerTickListener {
         binding.timerTextView.text = String.format("%02d:%02d.%02d", minute, second, millisecond)
 
         if (state == State.PLAYING) {
-            binding.waveformView.replayAmplitude(duration.toInt())
+            binding.waveformView.replayAmplitude()
         } else if (state == State.RECORDING) {
             binding.waveformView.addAmplitude(recorder?.maxAmplitude?.toFloat() ?: 0f)
         }
