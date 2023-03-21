@@ -33,7 +33,16 @@ struct LinesIterator: IteratorProtocol {
 let endpointURL = URL(string: "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.csv")!
 
 Task {
-    for line in await endpointURL.allLines() {
+//    for line in await endpointURL.allLines() {
+    for try await line in endpointURL.lines {
         print(line)
+    }
+}
+
+let url = URL(string: "https://www.google.com")!
+Task {
+    let (bytes, _) = try await URLSession.shared.bytes(from: url)
+    for try await byte in bytes {
+        print("바이트: \(byte)")
     }
 }
