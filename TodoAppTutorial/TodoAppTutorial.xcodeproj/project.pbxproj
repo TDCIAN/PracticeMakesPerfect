@@ -15,6 +15,7 @@
 		1EF8B0F829E787CD00BC213B /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF8B0F729E787CD00BC213B /* MainVC.swift */; };
 		1EF8B0FA29E78D7100BC213B /* TodoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EF8B0F929E78D7100BC213B /* TodoCell.xib */; };
 		1EF8B0FC29E78FD300BC213B /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF8B0FB29E78FD300BC213B /* TodoCell.swift */; };
+		1EF8B0FE29E7975C00BC213B /* TodosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF8B0FD29E7975C00BC213B /* TodosView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		1EF8B0F729E787CD00BC213B /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		1EF8B0F929E78D7100BC213B /* TodoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoCell.xib; sourceTree = "<group>"; };
 		1EF8B0FB29E78FD300BC213B /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
+		1EF8B0FD29E7975C00BC213B /* TodosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			children = (
 				1EF8B0F429E787AC00BC213B /* UIKit */,
 				1EF8B0E629E785BC00BC213B /* TodoAppTutorialApp.swift */,
+				1EF8B0FD29E7975C00BC213B /* TodosView.swift */,
 				1EF8B0E829E785BC00BC213B /* ContentView.swift */,
 				1EF8B0EA29E785BE00BC213B /* Assets.xcassets */,
 				1EF8B0EC29E785BE00BC213B /* Preview Content */,
@@ -159,6 +162,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EF8B0FE29E7975C00BC213B /* TodosView.swift in Sources */,
 				1EF8B0E929E785BC00BC213B /* ContentView.swift in Sources */,
 				1EF8B0F829E787CD00BC213B /* MainVC.swift in Sources */,
 				1EF8B0E729E785BC00BC213B /* TodoAppTutorialApp.swift in Sources */,

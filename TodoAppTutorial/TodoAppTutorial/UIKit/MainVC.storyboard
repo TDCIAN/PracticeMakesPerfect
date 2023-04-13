@@ -18,22 +18,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="JqS-5S-uPv">
-                                <rect key="frame" x="0.0" y="79" width="393" height="394"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="384"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MainVC / page: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gc9-YX-hMq">
-                                        <rect key="frame" x="10" y="9.9999999999999982" width="373" height="20.333333333333329"/>
+                                        <rect key="frame" x="10" y="0.0" width="373" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="선택된 할 일: []" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEv-tp-497">
-                                        <rect key="frame" x="10" y="49.333333333333343" width="373" height="20.333333333333329"/>
+                                        <rect key="frame" x="10" y="39.333333333333329" width="373" height="20.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="keU-ax-Z0S">
-                                        <rect key="frame" x="10" y="88.666666666666657" width="373" height="34.333333333333343"/>
+                                        <rect key="frame" x="10" y="78.666666666666657" width="373" height="34.333333333333343"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QUN-Vf-GeU">
                                                 <rect key="frame" x="0.0" y="0.0" width="79" height="34.333333333333336"/>
@@ -58,13 +58,13 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Async 변환 액션들" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezd-Np-1Tq">
-                                        <rect key="frame" x="10" y="142" width="373" height="20.333333333333343"/>
+                                        <rect key="frame" x="10" y="132" width="373" height="20.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="eOm-pw-8cZ">
-                                        <rect key="frame" x="10" y="181.33333333333331" width="373" height="54.333333333333343"/>
+                                        <rect key="frame" x="10" y="171.33333333333334" width="373" height="54.333333333333343"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R4R-Kf-0HD">
                                                 <rect key="frame" x="0.0" y="0.0" width="111.66666666666667" height="54.333333333333336"/>
@@ -84,7 +84,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="IcZ-lW-EgJ">
-                                        <rect key="frame" x="10" y="254.66666666666671" width="373" height="54.333333333333343"/>
+                                        <rect key="frame" x="10" y="244.66666666666671" width="373" height="54.333333333333343"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bDm-f2-4Qa">
                                                 <rect key="frame" x="0.0" y="0.0" width="111.66666666666667" height="54.333333333333336"/>
@@ -104,7 +104,7 @@
                                         </subviews>
                                     </stackView>
                                     <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="YAb-Kn-BbU">
-                                        <rect key="frame" x="10" y="328" width="373" height="56"/>
+                                        <rect key="frame" x="10" y="318" width="373" height="56"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
                                             <outlet property="delegate" destination="Y6W-OH-hqX" id="2Vm-UL-Ydy"/>
@@ -112,10 +112,10 @@
                                     </searchBar>
                                 </subviews>
                                 <color key="backgroundColor" red="0.99607843139999996" green="0.62745098040000002" blue="0.039215686270000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <edgeInsets key="layoutMargins" top="10" left="10" bottom="10" right="10"/>
+                                <edgeInsets key="layoutMargins" top="0.0" left="10" bottom="10" right="10"/>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="b7s-OG-MU3">
-                                <rect key="frame" x="0.0" y="473" width="393" height="345"/>
+                                <rect key="frame" x="0.0" y="443" width="393" height="375"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -125,26 +125,17 @@
                             <constraint firstItem="JqS-5S-uPv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="07n-U5-yMX"/>
                             <constraint firstItem="b7s-OG-MU3" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="2MP-GL-GZK"/>
                             <constraint firstItem="JqS-5S-uPv" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="2oB-gM-IM5"/>
-                            <constraint firstItem="JqS-5S-uPv" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="3ti-te-lyG"/>
+                            <constraint firstItem="JqS-5S-uPv" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="3ti-te-lyG"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="b7s-OG-MU3" secondAttribute="trailing" id="asV-pE-ekw"/>
                             <constraint firstItem="b7s-OG-MU3" firstAttribute="top" secondItem="JqS-5S-uPv" secondAttribute="bottom" id="auH-Cv-cqV"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="b7s-OG-MU3" secondAttribute="bottom" id="fJH-LT-H6I"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="searchDisplayController" destination="dkO-a1-HpG" id="5TL-ME-Qn7"/>
+                        <outlet property="myTableView" destination="b7s-OG-MU3" id="tBY-Vg-bT0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="dkO-a1-HpG">
-                    <connections>
-                        <outlet property="delegate" destination="Y6W-OH-hqX" id="XEW-KV-dZS"/>
-                        <outlet property="searchBar" destination="YAb-Kn-BbU" id="G2g-le-c1D"/>
-                        <outlet property="searchContentsController" destination="Y6W-OH-hqX" id="Usf-IU-cQa"/>
-                        <outlet property="searchResultsDataSource" destination="Y6W-OH-hqX" id="Pcp-G1-TXr"/>
-                        <outlet property="searchResultsDelegate" destination="Y6W-OH-hqX" id="Y0s-yp-B7F"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="64.885496183206101" y="-34.507042253521128"/>
         </scene>

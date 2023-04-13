@@ -11,6 +11,7 @@ class TodoCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var selectionSwitch: UISwitch!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,6 +20,7 @@ class TodoCell: UITableViewCell {
     
     @IBAction func onEditBtnClicked(_ sender: UIButton) {
         
+        print(#fileID, #function, #line, "- ")
     }
     
     @IBAction func onDeleteBtnClicked(_ sender: UIButton) {

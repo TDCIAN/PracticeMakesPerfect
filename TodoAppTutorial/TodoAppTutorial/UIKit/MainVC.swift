@@ -10,11 +10,38 @@ import SwiftUI
 
 class MainVC: UIViewController {
     
+    @IBOutlet weak var myTableView: UITableView!
+    
+    var dummyDataList = ["fadfkljasdflkjas", "akjsdhfkjlashdf", "xvcmnxc,mnv", "mnrrrqqq", "a;sldkfaadsfasf", "lkkrqlkjrlkqrj", "zxmnvmzxcnv,mcxznv"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print(#fileID, #function, #line, "- ")
         self.view.backgroundColor = .systemYellow
+        
+        myTableView.register(
+            TodoCell.uinib,
+            forCellReuseIdentifier: TodoCell.reuseIdentifier
+        )
+        myTableView.dataSource = self
     }
+}
+
+extension MainVC: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dummyDataList.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: TodoCell.reuseIdentifier,
+            for: indexPath
+        ) as? TodoCell else {
+            return UITableViewCell()            
+        }
+        return cell
+    }
+    
+    
 }
 
 extension MainVC {
@@ -39,11 +66,13 @@ extension MainVC {
     }
 }
 
+extension UIViewController: StoryBoarded { }
+
 protocol StoryBoarded {
     static func instantiate(_ storyboardName: String?) -> Self
 }
 
-extension MainVC: StoryBoarded {
+extension StoryBoarded {
     static func instantiate(_ storyboardName: String? = nil) -> Self {
         let name = storyboardName ?? String(describing: self)
         let storyboard = UIStoryboard(name: name, bundle: Bundle.main)
@@ -52,3 +81,32 @@ extension MainVC: StoryBoarded {
         ) as! Self
     }
 }
+
+protocol Nibbed {
+    static var uinib: UINib { get }
+}
+
+extension Nibbed {
+    static var uinib: UINib {
+        return UINib(
+            nibName: String(
+                describing: Self.self
+            ),
+            bundle: nil
+        )
+    }
+}
+
+extension UITableViewCell: Nibbed { }
+
+protocol ReuseIdentifiable {
+    static var reuseIdentifier: String { get }
+}
+
+extension ReuseIdentifiable {
+    static var reuseIdentifier: String {
+        return String(describing: Self.self)
+    }
+}
+
+extension UITableViewCell: ReuseIdentifiable { }

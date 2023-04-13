@@ -74,6 +74,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="contentLabel" destination="wSi-IM-Mik" id="XrO-pZ-Q2M"/>
+                <outlet property="selectionSwitch" destination="gXF-fp-1vu" id="r0f-1a-gk5"/>
                 <outlet property="titleLabel" destination="ilx-vu-khX" id="dq6-98-axd"/>
             </connections>
             <point key="canvasLocation" x="100.76335877862596" y="1.4084507042253522"/>
