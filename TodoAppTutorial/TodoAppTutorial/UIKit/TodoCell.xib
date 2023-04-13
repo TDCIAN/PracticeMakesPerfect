@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TodoCell" rowHeight="148" id="gRr-x9-drh" customClass="TodoCell" customModule="TodoAppTutorial" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="392" height="148"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gRr-x9-drh" id="AiQ-yb-C45">
+                <rect key="frame" x="0.0" y="0.0" width="392" height="148"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="todoId: 01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilx-vu-khX">
+                        <rect key="frame" x="20" y="9.9999999999999982" width="76" height="20.333333333333329"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wSi-IM-Mik">
+                        <rect key="frame" x="20" y="50.333333333333336" width="232" height="87.666666666666657"/>
+                        <string key="text">할 일 내용할 일 내용할 일 내용할 일 내용할 일 내용할 일 내용할 일 내용할 일 내용할 일 내용할 일 내용할 일 내용할 일 내용할 일 내용할 일 내용할 일 내용할 일 내용할 일 내용할 일 내용할 일 내용할 일 내용할 일 내용할 일 내용</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="eN0-GV-xhF">
+                        <rect key="frame" x="262" y="10" width="120" height="34.333333333333336"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NG8-Ag-WFW">
+                                <rect key="frame" x="0.0" y="0.0" width="56" height="34.333333333333336"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="수정"/>
+                                <connections>
+                                    <action selector="onEditBtnClicked:" destination="gRr-x9-drh" eventType="touchUpInside" id="INf-z7-Gvx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fv-dn-icr">
+                                <rect key="frame" x="64" y="0.0" width="56" height="34.333333333333336"/>
+                                <color key="tintColor" systemColor="systemPurpleColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="삭제"/>
+                                <connections>
+                                    <action selector="onDeleteBtnClicked:" destination="gRr-x9-drh" eventType="touchUpInside" id="x9g-uW-SMh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="120" id="xad-e6-AbI"/>
+                        </constraints>
+                    </stackView>
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gXF-fp-1vu">
+                        <rect key="frame" x="333" y="52" width="51" height="31"/>
+                    </switch>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="gXF-fp-1vu" firstAttribute="top" secondItem="eN0-GV-xhF" secondAttribute="bottom" constant="7.6666666666666643" id="1BQ-Cg-C59"/>
+                    <constraint firstItem="ilx-vu-khX" firstAttribute="leading" secondItem="AiQ-yb-C45" secondAttribute="leading" constant="20" symbolic="YES" id="9Ar-Cr-MDf"/>
+                    <constraint firstItem="wSi-IM-Mik" firstAttribute="top" secondItem="ilx-vu-khX" secondAttribute="bottom" constant="20" id="Fca-Op-nJ1"/>
+                    <constraint firstAttribute="trailing" secondItem="eN0-GV-xhF" secondAttribute="trailing" constant="10" id="QbH-6a-e9c"/>
+                    <constraint firstItem="eN0-GV-xhF" firstAttribute="top" secondItem="ilx-vu-khX" secondAttribute="top" id="RMR-Gm-B02"/>
+                    <constraint firstItem="gXF-fp-1vu" firstAttribute="trailing" secondItem="eN0-GV-xhF" secondAttribute="trailing" id="erB-Si-cGS"/>
+                    <constraint firstItem="eN0-GV-xhF" firstAttribute="leading" secondItem="wSi-IM-Mik" secondAttribute="trailing" constant="10" id="jYM-zB-fo6"/>
+                    <constraint firstAttribute="bottom" secondItem="wSi-IM-Mik" secondAttribute="bottom" constant="10" id="kF6-9N-oOK"/>
+                    <constraint firstItem="wSi-IM-Mik" firstAttribute="leading" secondItem="ilx-vu-khX" secondAttribute="leading" id="wPv-lB-Zzb"/>
+                    <constraint firstItem="ilx-vu-khX" firstAttribute="top" secondItem="AiQ-yb-C45" secondAttribute="top" constant="10" id="y3h-fs-r7r"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="contentLabel" destination="wSi-IM-Mik" id="XrO-pZ-Q2M"/>
+                <outlet property="titleLabel" destination="ilx-vu-khX" id="dq6-98-axd"/>
+            </connections>
+            <point key="canvasLocation" x="100.76335877862596" y="1.4084507042253522"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
