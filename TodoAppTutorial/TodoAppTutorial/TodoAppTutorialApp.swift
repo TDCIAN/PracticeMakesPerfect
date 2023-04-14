@@ -9,10 +9,13 @@ import SwiftUI
 
 @main
 struct TodoAppTutorialApp: App {
+    
+    @StateObject var todosVM: TodosVM = TodosVM()
+    
     var body: some Scene {
         WindowGroup {
             TabView {
-                ContentView()
+                TodosView()
                     .tabItem {
                         Image(systemName: "1.square.fill")
                         Text("SwiftUI")
