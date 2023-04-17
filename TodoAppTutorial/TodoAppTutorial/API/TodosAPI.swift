@@ -45,7 +45,7 @@ enum TodosAPI {
     
     static func fetchTodos(
         page: Int = 1,
-        completion: @escaping (Result<TodosResponse, ApiError>) -> Void
+        completion: @escaping (Result<BaseListResponse<Todo>, ApiError>) -> Void
     ) {
         let urlString = baseURL + "todos" + "?page=\(page)"
         
@@ -82,15 +82,132 @@ enum TodosAPI {
             
             if let jsonData = data {
                 do {
-                    let todosResponse = try JSONDecoder().decode(TodosResponse.self, from: jsonData)
-                    let todos = todosResponse.data
+                    let listResponse = try JSONDecoder().decode(BaseListResponse<Todo>.self, from: jsonData)
+                    let todos = listResponse.data
                     
                     guard let todos = todos,
                           !todos.isEmpty else {
                         return completion(.failure(ApiError.noContent))
                     }
                     
-                    completion(.success(todosResponse))
+                    completion(.success(listResponse))
+                } catch(let error) {
+                    print(#fileID, #function, #line, "- catch error: \(error)")
+                    completion(.failure(.decodingError))
+                }
+            }
+        }.resume()
+    }
+    
+    static func fetchATodo(
+        id: Int,
+        completion: @escaping (Result<BaseResponse<Todo>, ApiError>) -> Void
+    ) {
+        let urlString = baseURL + "todos/" + "id=\(id)"
+        
+        guard let url = URL(string: urlString) else {
+            return completion(.failure(.badUrl))
+        }
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "GET"
+        urlRequest.addValue("application/json", forHTTPHeaderField: "accept")
+        
+        URLSession.shared.dataTask(with: urlRequest) { data, urlResponse, err in
+            
+            if let error = err {
+                print(#fileID, #function, #line, "- request error: \(err)")
+                return completion(.failure(ApiError.unknown(error)))
+            }
+            
+            guard let httpResponse = urlResponse as? HTTPURLResponse else {
+                print(#fileID, #function, #line, "- bad status code")
+                return completion(.failure(ApiError.unknown(nil)))
+            }
+            
+            switch httpResponse.statusCode {
+            case 204:
+                return completion(.failure(ApiError.noContent))
+            case 401:
+                return completion(.failure(ApiError.unauthorized))
+            default:
+                print(#fileID, #function, #line, "- code: \(httpResponse.statusCode)")
+            }
+            
+            if !(200...299).contains(httpResponse.statusCode) {
+                return completion(.failure(ApiError.badStatus(code: httpResponse.statusCode)))
+            }
+            
+            if let jsonData = data {
+                do {
+                    let baseResponse = try JSONDecoder().decode(BaseResponse<Todo>.self, from: jsonData)
+                    completion(.success(baseResponse))
+                } catch(let error) {
+                    print(#fileID, #function, #line, "- catch error: \(error)")
+                    completion(.failure(.decodingError))
+                }
+            }
+        }.resume()
+    }
+    
+    static func searchTodos(
+        searchTerm: String,
+        page: Int = 1,
+        completion: @escaping (Result<BaseListResponse<Todo>, ApiError>) -> Void
+    ) {
+//        let urlString = baseURL + "todos/search" + "?query=\(searchTerm)" + "&page=\(page)" +
+        
+        let requestUrl = URL(
+            baseUrl: baseURL + "todos/search/",
+            queryItems: [
+                "query": searchTerm,
+                "page": "\(page)"
+            ]
+        )
+        
+//        var urlComponents = URLComponents(string: baseURL + "/todos/search")
+//        urlComponents?.queryItems = [
+//            URLQueryItem(name: "query", value: searchTerm),
+//            URLQueryItem(name: "page", value: "\(page)")
+//        ]
+
+        guard let url = requestUrl else {
+            return completion(.failure(.badUrl))
+        }
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "GET"
+        urlRequest.addValue("application/json", forHTTPHeaderField: "accept")
+        
+        URLSession.shared.dataTask(with: urlRequest) { data, urlResponse, err in
+            
+            if let error = err {
+                print(#fileID, #function, #line, "- request error: \(err)")
+                return completion(.failure(ApiError.unknown(error)))
+            }
+            
+            guard let httpResponse = urlResponse as? HTTPURLResponse else {
+                print(#fileID, #function, #line, "- bad status code")
+                return completion(.failure(ApiError.unknown(nil)))
+            }
+            
+            switch httpResponse.statusCode {
+            case 204:
+                return completion(.failure(ApiError.noContent))
+            case 401:
+                return completion(.failure(ApiError.unauthorized))
+            default:
+                print(#fileID, #function, #line, "- code: \(httpResponse.statusCode)")
+            }
+            
+            if !(200...299).contains(httpResponse.statusCode) {
+                return completion(.failure(ApiError.badStatus(code: httpResponse.statusCode)))
+            }
+            
+            if let jsonData = data {
+                do {
+                    let baseResponse = try JSONDecoder().decode(BaseListResponse<Todo>.self, from: jsonData)
+                    completion(.success(baseResponse))
                 } catch(let error) {
                     print(#fileID, #function, #line, "- catch error: \(error)")
                     completion(.failure(.decodingError))

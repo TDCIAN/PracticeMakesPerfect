@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E69E5FC29ED6D8A00E02403 /* URL+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E69E5FB29ED6D8A00E02403 /* URL+Ext.swift */; };
 		1EF8B0E729E785BC00BC213B /* TodoAppTutorialApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF8B0E629E785BC00BC213B /* TodoAppTutorialApp.swift */; };
 		1EF8B0E929E785BC00BC213B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF8B0E829E785BC00BC213B /* ContentView.swift */; };
 		1EF8B0EB29E785BE00BC213B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EF8B0EA29E785BE00BC213B /* Assets.xcassets */; };
@@ -25,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E69E5FB29ED6D8A00E02403 /* URL+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Ext.swift"; sourceTree = "<group>"; };
+		1E69E5FD29ED6E9D00E02403 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1EF8B0E329E785BC00BC213B /* TodoAppTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoAppTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EF8B0E629E785BC00BC213B /* TodoAppTutorialApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoAppTutorialApp.swift; sourceTree = "<group>"; };
 		1EF8B0E829E785BC00BC213B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -54,6 +57,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E69E5FA29ED6D8000E02403 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1E69E5FB29ED6D8A00E02403 /* URL+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		1EF8B0DA29E785BC00BC213B = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +84,8 @@
 		1EF8B0E529E785BC00BC213B /* TodoAppTutorial */ = {
 			isa = PBXGroup;
 			children = (
+				1E69E5FD29ED6E9D00E02403 /* Info.plist */,
+				1E69E5FA29ED6D8000E02403 /* Extensions */,
 				1EF8B10C29E7C42A00BC213B /* Data */,
 				1EF8B10729E7C03800BC213B /* API */,
 				1EF8B0FF29E7999B00BC213B /* Styles */,
@@ -219,6 +232,7 @@
 				1EF8B0F829E787CD00BC213B /* MainVC.swift in Sources */,
 				1EF8B10B29E7C27700BC213B /* TodosVM.swift in Sources */,
 				1EF8B10129E799A300BC213B /* ButtonStyle.swift in Sources */,
+				1E69E5FC29ED6D8A00E02403 /* URL+Ext.swift in Sources */,
 				1EF8B0E729E785BC00BC213B /* TodoAppTutorialApp.swift in Sources */,
 				1EF8B10429E79C8500BC213B /* UISearchBarWrapper.swift in Sources */,
 				1EF8B10629E79D6C00BC213B /* TodoRow.swift in Sources */,
@@ -354,6 +368,7 @@
 				DEVELOPMENT_TEAM = 4FTFKXF8N5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TodoAppTutorial/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -384,6 +399,7 @@
 				DEVELOPMENT_TEAM = 4FTFKXF8N5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TodoAppTutorial/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

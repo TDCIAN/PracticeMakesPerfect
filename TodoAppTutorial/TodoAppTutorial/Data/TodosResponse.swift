@@ -14,6 +14,17 @@ struct TodosResponse: Codable {
     let message: String?
 }
 
+struct BaseListResponse<T: Codable>: Codable {
+    let data: [T]?
+    let meta: Meta?
+    let message: String?
+}
+
+struct BaseResponse<T: Codable>: Codable {
+    let data: T?
+    let message: String?
+}
+
 // MARK: - Datum
 struct Todo: Codable {
     let id: Int?
