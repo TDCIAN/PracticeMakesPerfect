@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import MultipartForm
 
 enum TodosAPI {
     
@@ -20,6 +21,7 @@ enum TodosAPI {
     enum ApiError: Error {
         case badUrl
         case noContent
+        case jsonEncodingError
         case decodingError
         case unauthorized
         case badStatus(code: Int)
@@ -39,6 +41,8 @@ enum TodosAPI {
                 return "에러 상태코드: \(code)"
             case .unknown(let err):
                 return "알 수 없는 에러입니다. \(err)"
+            case .jsonEncodingError:
+                return "유효한 JSON 형식이 아닙니다."
             }
         }
     }
@@ -207,6 +211,345 @@ enum TodosAPI {
             if let jsonData = data {
                 do {
                     let baseResponse = try JSONDecoder().decode(BaseListResponse<Todo>.self, from: jsonData)
+                    completion(.success(baseResponse))
+                } catch(let error) {
+                    print(#fileID, #function, #line, "- catch error: \(error)")
+                    completion(.failure(.decodingError))
+                }
+            }
+        }.resume()
+    }
+    
+    
+    /// 할 일 추가하기
+    /// - Parameters:
+    ///   - title: 할 일 타이틀
+    ///   - isDone: 할 일 완료여부
+    ///   - completion: 응답 여부
+    static func addATodo(
+        title: String,
+        isDone: Bool = false,
+        completion: @escaping (Result<BaseResponse<Todo>, ApiError>) -> Void
+    ) {
+        let urlString = baseURL + "todos"
+        
+        guard let url = URL(string: urlString) else {
+            return completion(.failure(.badUrl))
+        }
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "POST"
+        urlRequest.addValue("application/json", forHTTPHeaderField: "accept")
+        
+        let form = MultipartForm(parts: [
+            MultipartForm.Part(name: "title", value: title),
+            MultipartForm.Part(name: "is_done", value: "\(isDone)")
+        ])
+        
+        
+        print(#fileID, #function, #line, "- form.contentType: \(form.contentType)")
+        
+        urlRequest.addValue(form.contentType, forHTTPHeaderField: "Content-Type")
+        
+        urlRequest.httpBody = form.bodyData
+        
+        URLSession.shared.dataTask(with: urlRequest) { data, urlResponse, err in
+            
+            if let error = err {
+                print(#fileID, #function, #line, "- request error: \(err)")
+                return completion(.failure(ApiError.unknown(error)))
+            }
+            
+            guard let httpResponse = urlResponse as? HTTPURLResponse else {
+                print(#fileID, #function, #line, "- bad status code")
+                return completion(.failure(ApiError.unknown(nil)))
+            }
+            
+            switch httpResponse.statusCode {
+            case 204:
+                return completion(.failure(ApiError.noContent))
+            case 401:
+                return completion(.failure(ApiError.unauthorized))
+            default:
+                print(#fileID, #function, #line, "- httpResponse.statusCode: \(httpResponse.statusCode)")
+            }
+            
+            if !(200...299).contains(httpResponse.statusCode) {
+                return completion(.failure(ApiError.badStatus(code: httpResponse.statusCode)))
+            }
+            
+            if let jsonData = data {
+                do {
+                    let baseResponse = try JSONDecoder().decode(BaseResponse<Todo>.self, from: jsonData)
+                    completion(.success(baseResponse))
+                } catch(let error) {
+                    print(#fileID, #function, #line, "- catch error: \(error)")
+                    completion(.failure(.decodingError))
+                }
+            }
+        }.resume()
+    }
+    
+    
+    /// 할 일 추가하기 - json
+    /// - Parameters:
+    ///   - title: 할 일 타이틀
+    ///   - isDone: 할 일 완료여부
+    ///   - completion: 응답 여부
+    static func addATodoJson(
+        title: String,
+        isDone: Bool = false,
+        completion: @escaping (Result<BaseResponse<Todo>, ApiError>) -> Void
+    ) {
+        let urlString = baseURL + "todos-json"
+        
+        guard let url = URL(string: urlString) else {
+            return completion(.failure(.badUrl))
+        }
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "POST"
+        urlRequest.addValue("application/json", forHTTPHeaderField: "accept")
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let requestParams: [String: Any] = [
+            "title": title,
+            "is_done": "\(isDone)"
+        ]
+        do {
+            let jsonData = try? JSONSerialization.data(
+                withJSONObject: requestParams,
+                options: .prettyPrinted
+            )
+            urlRequest.httpBody = jsonData
+        } catch {
+            return completion(.failure(ApiError.jsonEncodingError))
+        }
+        
+        URLSession.shared.dataTask(with: urlRequest) { data, urlResponse, err in
+            
+            if let error = err {
+                print(#fileID, #function, #line, "- request error: \(err)")
+                return completion(.failure(ApiError.unknown(error)))
+            }
+            
+            guard let httpResponse = urlResponse as? HTTPURLResponse else {
+                print(#fileID, #function, #line, "- bad status code")
+                return completion(.failure(ApiError.unknown(nil)))
+            }
+            
+            switch httpResponse.statusCode {
+            case 204:
+                return completion(.failure(ApiError.noContent))
+            case 401:
+                return completion(.failure(ApiError.unauthorized))
+            default:
+                print(#fileID, #function, #line, "- httpResponse.statusCode: \(httpResponse.statusCode)")
+            }
+            
+            if !(200...299).contains(httpResponse.statusCode) {
+                return completion(.failure(ApiError.badStatus(code: httpResponse.statusCode)))
+            }
+            
+            if let jsonData = data {
+                do {
+                    let baseResponse = try JSONDecoder().decode(BaseResponse<Todo>.self, from: jsonData)
+                    completion(.success(baseResponse))
+                } catch(let error) {
+                    print(#fileID, #function, #line, "- catch error: \(error)")
+                    completion(.failure(.decodingError))
+                }
+            }
+        }.resume()
+    }
+    
+    
+    /// 할 일 수정하기 - Json
+    /// - Parameters:
+    ///   - id: 수정할 아이템 아이디
+    ///   - title: 타이틀
+    ///   - isDone: 완료여부
+    ///   - completion: 응답결과
+    static func editTodoJson(
+        id: Int,
+        title: String,
+        isDone: Bool = false,
+        completion: @escaping (Result<BaseResponse<Todo>, ApiError>) -> Void
+    ) {
+        let urlString = baseURL + "todos-json/\(id)"
+        
+        guard let url = URL(string: urlString) else {
+            return completion(.failure(.badUrl))
+        }
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "POST"
+        urlRequest.addValue("application/json", forHTTPHeaderField: "accept")
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let requestParams: [String: Any] = [
+            "title": title,
+            "is_done": "\(isDone)"
+        ]
+        do {
+            let jsonData = try? JSONSerialization.data(
+                withJSONObject: requestParams,
+                options: .prettyPrinted
+            )
+            urlRequest.httpBody = jsonData
+        } catch {
+            return completion(.failure(ApiError.jsonEncodingError))
+        }
+        
+        URLSession.shared.dataTask(with: urlRequest) { data, urlResponse, err in
+            
+            if let error = err {
+                print(#fileID, #function, #line, "- request error: \(err)")
+                return completion(.failure(ApiError.unknown(error)))
+            }
+            
+            guard let httpResponse = urlResponse as? HTTPURLResponse else {
+                print(#fileID, #function, #line, "- bad status code")
+                return completion(.failure(ApiError.unknown(nil)))
+            }
+            
+            switch httpResponse.statusCode {
+            case 204:
+                return completion(.failure(ApiError.noContent))
+            case 401:
+                return completion(.failure(ApiError.unauthorized))
+            default:
+                print(#fileID, #function, #line, "- httpResponse.statusCode: \(httpResponse.statusCode)")
+            }
+            
+            if !(200...299).contains(httpResponse.statusCode) {
+                return completion(.failure(ApiError.badStatus(code: httpResponse.statusCode)))
+            }
+            
+            if let jsonData = data {
+                do {
+                    let baseResponse = try JSONDecoder().decode(BaseResponse<Todo>.self, from: jsonData)
+                    completion(.success(baseResponse))
+                } catch(let error) {
+                    print(#fileID, #function, #line, "- catch error: \(error)")
+                    completion(.failure(.decodingError))
+                }
+            }
+        }.resume()
+    }
+    
+    /// 할 일 수정하기 - PUT urlEncoded
+    /// - Parameters:
+    ///   - id: 수정할 아이템 아이디
+    ///   - title: 타이틀
+    ///   - isDone: 완료여부
+    ///   - completion: 응답결과
+    static func editTodo(
+        id: Int,
+        title: String,
+        isDone: Bool = false,
+        completion: @escaping (Result<BaseResponse<Todo>, ApiError>) -> Void
+    ) {
+        let urlString = baseURL + "todos/\(id)"
+        
+        guard let url = URL(string: urlString) else {
+            return completion(.failure(.badUrl))
+        }
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "PUT"
+        urlRequest.addValue("application/json", forHTTPHeaderField: "accept")
+        urlRequest.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        
+        let requestParams: [String: String] = [
+            "title": title,
+            "is_done": "\(isDone)"
+        ]
+        urlRequest.percentEncodeParameters(parameters: requestParams)
+        
+        URLSession.shared.dataTask(with: urlRequest) { data, urlResponse, err in
+            
+            if let error = err {
+                print(#fileID, #function, #line, "- request error: \(err)")
+                return completion(.failure(ApiError.unknown(error)))
+            }
+            
+            guard let httpResponse = urlResponse as? HTTPURLResponse else {
+                print(#fileID, #function, #line, "- bad status code")
+                return completion(.failure(ApiError.unknown(nil)))
+            }
+            
+            switch httpResponse.statusCode {
+            case 204:
+                return completion(.failure(ApiError.noContent))
+            case 401:
+                return completion(.failure(ApiError.unauthorized))
+            default:
+                print(#fileID, #function, #line, "- httpResponse.statusCode: \(httpResponse.statusCode)")
+            }
+            
+            if !(200...299).contains(httpResponse.statusCode) {
+                return completion(.failure(ApiError.badStatus(code: httpResponse.statusCode)))
+            }
+            
+            if let jsonData = data {
+                do {
+                    let baseResponse = try JSONDecoder().decode(BaseResponse<Todo>.self, from: jsonData)
+                    completion(.success(baseResponse))
+                } catch(let error) {
+                    print(#fileID, #function, #line, "- catch error: \(error)")
+                    completion(.failure(.decodingError))
+                }
+            }
+        }.resume()
+    }
+    
+    /// 삭제하기
+    /// - Parameters:
+    ///   - id: 삭제할 아이템 아이디
+    ///   - completion: 응답결과
+    static func deleteATodo(
+        id: Int,
+        completion: @escaping (Result<BaseResponse<Todo>, ApiError>) -> Void
+    ) {
+        let urlString = baseURL + "todos/\(id)"
+        
+        guard let url = URL(string: urlString) else {
+            return completion(.failure(.badUrl))
+        }
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "DELETE"
+        urlRequest.addValue("application/json", forHTTPHeaderField: "accept")
+
+        URLSession.shared.dataTask(with: urlRequest) { data, urlResponse, err in
+            
+            if let error = err {
+                print(#fileID, #function, #line, "- request error: \(err)")
+                return completion(.failure(ApiError.unknown(error)))
+            }
+            
+            guard let httpResponse = urlResponse as? HTTPURLResponse else {
+                print(#fileID, #function, #line, "- bad status code")
+                return completion(.failure(ApiError.unknown(nil)))
+            }
+            
+            switch httpResponse.statusCode {
+            case 204:
+                return completion(.failure(ApiError.noContent))
+            case 401:
+                return completion(.failure(ApiError.unauthorized))
+            default:
+                print(#fileID, #function, #line, "- httpResponse.statusCode: \(httpResponse.statusCode)")
+            }
+            
+            if !(200...299).contains(httpResponse.statusCode) {
+                return completion(.failure(ApiError.badStatus(code: httpResponse.statusCode)))
+            }
+            
+            if let jsonData = data {
+                do {
+                    let baseResponse = try JSONDecoder().decode(BaseResponse<Todo>.self, from: jsonData)
                     completion(.success(baseResponse))
                 } catch(let error) {
                     print(#fileID, #function, #line, "- catch error: \(error)")

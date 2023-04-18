@@ -23,6 +23,8 @@
 		1EF8B10929E7C04400BC213B /* TodosAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF8B10829E7C04400BC213B /* TodosAPI.swift */; };
 		1EF8B10B29E7C27700BC213B /* TodosVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF8B10A29E7C27700BC213B /* TodosVM.swift */; };
 		1EF8B10E29E7C43200BC213B /* TodosResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF8B10D29E7C43200BC213B /* TodosResponse.swift */; };
+		1EFD908B29EE191B00A17185 /* MultipartForm in Frameworks */ = {isa = PBXBuildFile; productRef = 1EFD908A29EE191B00A17185 /* MultipartForm */; };
+		1EFD908D29EE2E8300A17185 /* URLRequest+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFD908C29EE2E8300A17185 /* URLRequest+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,7 @@
 		1EF8B10829E7C04400BC213B /* TodosAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosAPI.swift; sourceTree = "<group>"; };
 		1EF8B10A29E7C27700BC213B /* TodosVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosVM.swift; sourceTree = "<group>"; };
 		1EF8B10D29E7C43200BC213B /* TodosResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosResponse.swift; sourceTree = "<group>"; };
+		1EFD908C29EE2E8300A17185 /* URLRequest+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EFD908B29EE191B00A17185 /* MultipartForm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				1E69E5FB29ED6D8A00E02403 /* URL+Ext.swift */,
+				1EFD908C29EE2E8300A17185 /* URLRequest+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -169,6 +174,9 @@
 			dependencies = (
 			);
 			name = TodoAppTutorial;
+			packageProductDependencies = (
+				1EFD908A29EE191B00A17185 /* MultipartForm */,
+			);
 			productName = TodoAppTutorial;
 			productReference = 1EF8B0E329E785BC00BC213B /* TodoAppTutorial.app */;
 			productType = "com.apple.product-type.application";
@@ -197,6 +205,9 @@
 				Base,
 			);
 			mainGroup = 1EF8B0DA29E785BC00BC213B;
+			packageReferences = (
+				1EFD908929EE191B00A17185 /* XCRemoteSwiftPackageReference "MultipartForm" */,
+			);
 			productRefGroup = 1EF8B0E429E785BC00BC213B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -229,6 +240,7 @@
 				1EF8B0FE29E7975C00BC213B /* TodosView.swift in Sources */,
 				1EF8B0E929E785BC00BC213B /* ContentView.swift in Sources */,
 				1EF8B10E29E7C43200BC213B /* TodosResponse.swift in Sources */,
+				1EFD908D29EE2E8300A17185 /* URLRequest+Ext.swift in Sources */,
 				1EF8B0F829E787CD00BC213B /* MainVC.swift in Sources */,
 				1EF8B10B29E7C27700BC213B /* TodosVM.swift in Sources */,
 				1EF8B10129E799A300BC213B /* ButtonStyle.swift in Sources */,
@@ -441,6 +453,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1EFD908929EE191B00A17185 /* XCRemoteSwiftPackageReference "MultipartForm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/davbeck/MultipartForm";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1EFD908A29EE191B00A17185 /* MultipartForm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1EFD908929EE191B00A17185 /* XCRemoteSwiftPackageReference "MultipartForm" */;
+			productName = MultipartForm;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1EF8B0DB29E785BC00BC213B /* Project object */;
 }
