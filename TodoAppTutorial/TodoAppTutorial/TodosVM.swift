@@ -7,95 +7,82 @@
 
 import Foundation
 import Combine
+import RxSwift
+import RxCocoa
 
 class TodosVM: ObservableObject {
+    private let disposeBag = DisposeBag()
+    var subscriptions = Set<AnyCancellable>()
     
     init() {        
         print(#fileID, #function, #line, "- ")
-
-        TodosAPI.deleteATodo(id: 3387) { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success(let todo):
-                print(#fileID, #function, #line, "- 석세스 todo: \(todo)")
-            case .failure(let error):
-                print(#fileID, #function, #line, "- 에러 error: \(error)")
-                self.handleError(error)
+        
+        TodosAPI.deleteSelectedTodosWithPublisherZip(selectedTodoIds: [3397, 3396, 3395, 9999, 8888])
+            .sink { [weak self] completion in
+                guard let self = self else { return }
+                switch completion {
+                case .failure(let error):
+                    self.handleError(error)
+                case .finished:
+                    print("TodosVM - finished")
+                }
+            } receiveValue: { response in
+                print("TodosVM - response: \(response)")
             }
-        }
+            .store(in: &subscriptions)
+
+
+
         
-//        TodosAPI.editTodo(id: 3388, title: "풋수정 해보겠습니다", isDone: true) { [weak self] result in
-//            guard let self = self else { return }
-//            switch result {
-//            case .success(let todo):
-//                print(#fileID, #function, #line, "- 석세스 todo: \(todo)")
-//            case .failure(let error):
-//                print(#fileID, #function, #line, "- 에러 error: \(error)")
-//                self.handleError(error)
-//            }
-//        }
+//        TodosAPI.addTodoAndFetchTodosWithPublisher(title: "추가추가추")
+//            .sink { [weak self] completion in
+//                guard let self = self else { return }
+//                switch completion {
+//                case .failure(let error):
+//                    self.handleError(error)
+//                case .finished:
+//                    print("피니시드")
+//                }
+//            } receiveValue: { todoList in
+//                print("투두리스트: \(todoList)")
+//            }.store(in: &subscriptions)
+
+            
         
-//        TodosAPI.editTodoJson(id: 3388, title: "수정 한 번 해보겠습니다", isDone: true) { [weak self] result in
-//            guard let self = self else { return }
-//            switch result {
-//            case .success(let todo):
-//                print(#fileID, #function, #line, "- 석세스 todo: \(todo)")
-//            case .failure(let error):
-//                print(#fileID, #function, #line, "- 에러 error: \(error)")
-//                self.handleError(error)
-//            }
-//        }
         
-//        TodosAPI.addATodoJson(title: "JSON으로 추가 해보겠습니다", isDone: false) { [weak self] result in
-//            guard let self = self else { return }
-//            switch result {
-//            case .success(let todo):
-//                print(#fileID, #function, #line, "- 석세스 todo: \(todo)")
-//            case .failure(let error):
-//                print(#fileID, #function, #line, "- 에러 error: \(error)")
-//                self.handleError(error)
-//            }
-//        }
+//        TodosAPI.fetchTodosWithPublisher()
+//            .sink { [weak self] completion in
+//                guard let self = self else { return }
+//                switch completion {
+//                case .failure(let failure):
+//                    self.handleError(failure)
+//                case .finished:
+//                    print("TodosVM - finished")
+//                }
+//            } receiveValue: { response in
+//                print("TodosVM - response: \(response)")
+//            }.store(in: &subscriptions)
+
         
-//        TodosAPI.searchTodos(searchTerm: "빡코") { [weak self] result in
-//            guard let self = self else { return }
-//            switch result {
-//            case .success(let todosResponse):
-//                print(#fileID, #function, #line, "- vm success: \(todosResponse)")
-//            case .failure(let error):
-//                print(#fileID, #function, #line, "- vm error: \(error)")
-//                self.handleError(error)
-//            }
-//        }
         
-//        TodosAPI.fetchATodo(id: 9999) { [weak self] result in
-//            guard let self = self else { return }
-//            switch result {
-//            case .success(let todo):
-//                print(#fileID, #function, #line, "- todo: \(todo)")
-//            case .failure(let error):
-//                print(#fileID, #function, #line, "- error: \(error)")
-//                self.handleError(error)
-//            }
-//        }
+//        TodosAPI.fetchTodosWithPublisherResult()
+//            .sink { result in
+//                switch result {
+//                case .success(let todos):
+//                    print("페치투두스위드퍼블리셔 리절트 - \(todos)")
+//                case .failure(let error):
+//                    self.handleError(error)
+//                }
+//            }.store(in: &subscriptions)
         
-//        TodosAPI.fetchTodos { [weak self] result in
-//            guard let self = self else { return }
-//            switch result {
-//            case .success(let todosResponse):
-//                print(#fileID, #function, #line, "- vm success: \(todosResponse)")
-//            case .failure(let error):
-//                print(#fileID, #function, #line, "- vm error: \(error)")
-//                self.handleError(error)
-//            }
-//        }
+            
     }
     
     fileprivate func handleError(_ err: Error) {
         if err is TodosAPI.ApiError {
             let apiError = err as! TodosAPI.ApiError
             switch apiError {
-            case .badUrl:
+            case .notAllowedUrl:
                 print("배드유알엘")
             case .noContent:
                 print("컨텐츠 없음")
@@ -107,7 +94,7 @@ class TodosVM: ObservableObject {
                 print("배드 스테이터스 - 코드: \(code)")
             case .unknown(let error):
                 print("알 수 없음: \(error)")
-            case .jsonEncodingError:
+            case .jsonEncoding:
                 print("JSON 인코딩 안 됨")
             }
         }
