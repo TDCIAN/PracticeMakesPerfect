@@ -799,20 +799,20 @@ extension TodosAPI {
     /// - Parameters:
     ///   - selectedTodoIds: 선택된 할일 아이디들
     ///   - completion: 응답 결과
-//    static func fetchSelectedTodosPublisher(selectedTodoIds: [Int]) -> AnyPublisher<[Todo], Never>{
-//
-//        //1. 매개변수 배열 -> Observable 스트림 배열
-//
-//        //2. 배열로 단일 api들 호출
-//        let apiCallPublishers = selectedTodoIds.map { id -> AnyPublisher<Todo?, Never> in
-//            return self.fetchATodoWithPublisher(id: id)
-//                .map{ $0.data } // Todo?
-//                .replaceError(with: nil)
-//                .eraseToAnyPublisher()
-//        }
-//
-//        return apiCallPublishers.zip().map{ $0.compactMap{ $0 } }.eraseToAnyPublisher()
-//    }
+    static func fetchSelectedTodosPublisher(selectedTodoIds: [Int]) -> AnyPublisher<[Todo], Never>{
+
+        //1. 매개변수 배열 -> Observable 스트림 배열
+
+        //2. 배열로 단일 api들 호출
+        let apiCallPublishers = selectedTodoIds.map { id -> AnyPublisher<Todo?, Never> in
+            return self.fetchATodoWithPublisher(id: id)
+                .map{ $0.data } // Todo?
+                .replaceError(with: nil)
+                .eraseToAnyPublisher()
+        }
+
+        return apiCallPublishers.zip().map{ $0.compactMap{ $0 } }.eraseToAnyPublisher()
+    }
     
     /// Rx 기반 api 동시 처리
     /// 선택된 할일들 가져오기

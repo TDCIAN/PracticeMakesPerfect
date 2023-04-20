@@ -33,6 +33,7 @@
 		1EFD908B29EE191B00A17185 /* MultipartForm in Frameworks */ = {isa = PBXBuildFile; productRef = 1EFD908A29EE191B00A17185 /* MultipartForm */; };
 		1EFD908D29EE2E8300A17185 /* URLRequest+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFD908C29EE2E8300A17185 /* URLRequest+Ext.swift */; };
 		1EFD908F29EE354700A17185 /* TodosAPI+Closure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFD908E29EE354700A17185 /* TodosAPI+Closure.swift */; };
+		1EFD921F29F0966E00115AAB /* TodosAPI+Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFD921E29F0966E00115AAB /* TodosAPI+Async.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		1EF8B10D29E7C43200BC213B /* TodosResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosResponse.swift; sourceTree = "<group>"; };
 		1EFD908C29EE2E8300A17185 /* URLRequest+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Ext.swift"; sourceTree = "<group>"; };
 		1EFD908E29EE354700A17185 /* TodosAPI+Closure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TodosAPI+Closure.swift"; sourceTree = "<group>"; };
+		1EFD921E29F0966E00115AAB /* TodosAPI+Async.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TodosAPI+Async.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 				1EFD908E29EE354700A17185 /* TodosAPI+Closure.swift */,
 				1EF757B629EF67100093F65C /* TodosAPI+Rx.swift */,
 				1EF757B829EFA8160093F65C /* TodosAPI+Combine.swift */,
+				1EFD921E29F0966E00115AAB /* TodosAPI+Async.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				1E69E5FC29ED6D8A00E02403 /* URL+Ext.swift in Sources */,
 				1EF8B0E729E785BC00BC213B /* TodoAppTutorialApp.swift in Sources */,
 				1EF757B929EFA8160093F65C /* TodosAPI+Combine.swift in Sources */,
+				1EFD921F29F0966E00115AAB /* TodosAPI+Async.swift in Sources */,
 				1EF8B10429E79C8500BC213B /* UISearchBarWrapper.swift in Sources */,
 				1EF8B10629E79D6C00BC213B /* TodoRow.swift in Sources */,
 				1EF8B0FC29E78FD300BC213B /* TodoCell.swift in Sources */,
