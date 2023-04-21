@@ -652,7 +652,30 @@ extension TodosAPI {
             
             return deleteTodoIds
         }
-        
+    }
+    
+    static func deleteSelectedTodosWithAsyncTaskGroupNoError(selectedTodoIds: [Int]) async -> [Int] {
+        await withTaskGroup(of: Int?.self, body: { (group: inout TaskGroup<Int?>) -> [Int] in
+            for aTodoId in selectedTodoIds {
+                group.addTask {
+                    do {
+                        let childTaskResult = try await self.deleteATodoWithAsync(id: aTodoId)
+                        return childTaskResult.data?.id
+                    } catch {
+                        return nil
+                    }
+                }
+            }
+            
+            var deleteTodoIds: [Int] = []
+            
+            for await singleValue in group {
+                if let value = singleValue {
+                    deleteTodoIds.append(value)
+                }
+            }
+            return deleteTodoIds
+        })
     }
     
     static func deleteSelectedTodosWithAsyncMergeWithError(selectedTodoIds: [Int]) -> AnyPublisher<Int, ApiError>{

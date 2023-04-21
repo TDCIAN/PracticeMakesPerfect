@@ -18,12 +18,8 @@ class TodosVM: ObservableObject {
         print(#fileID, #function, #line, "- ")
         
         Task {
-            do {
-                let response = try await TodosAPI.deleteSelectedTodosWithAsyncTaskGroupWithError(selectedTodoIds: [3399, 3398])
-                print("리스폰스: \(response)")
-            } catch {
-                self.handleError(error)
-            }
+            let response = await TodosAPI.deleteSelectedTodosWithAsyncTaskGroupNoError(selectedTodoIds: [3091, 3273, 9999])
+            print("리스폰스: \(response)")
         }
 
     }
