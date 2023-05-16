@@ -10,6 +10,7 @@
 		1E1C72AB2A134156001F3360 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E1C72AA2A134156001F3360 /* main.m */; };
 		1E1C72B32A134D61001F3360 /* MyClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E1C72B22A134D61001F3360 /* MyClass.m */; };
 		1E1C72B52A13566F001F3360 /* Dog.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E1C72B42A13566E001F3360 /* Dog.m */; };
+		1E1C72BA2A136708001F3360 /* Man.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E1C72B92A136708001F3360 /* Man.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +32,9 @@
 		1E1C72B22A134D61001F3360 /* MyClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyClass.m; sourceTree = "<group>"; };
 		1E1C72B42A13566E001F3360 /* Dog.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Dog.m; sourceTree = "<group>"; };
 		1E1C72B62A135676001F3360 /* Dog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dog.h; sourceTree = "<group>"; };
+		1E1C72B72A1366C9001F3360 /* Runnable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Runnable.h; sourceTree = "<group>"; };
+		1E1C72B82A1366FF001F3360 /* Man.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Man.h; sourceTree = "<group>"; };
+		1E1C72B92A136708001F3360 /* Man.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Man.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,9 @@
 				1E1C72B22A134D61001F3360 /* MyClass.m */,
 				1E1C72B62A135676001F3360 /* Dog.h */,
 				1E1C72B42A13566E001F3360 /* Dog.m */,
+				1E1C72B72A1366C9001F3360 /* Runnable.h */,
+				1E1C72B82A1366FF001F3360 /* Man.h */,
+				1E1C72B92A136708001F3360 /* Man.m */,
 			);
 			path = "objectivec-smile-han";
 			sourceTree = "<group>";
@@ -129,6 +136,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E1C72BA2A136708001F3360 /* Man.m in Sources */,
 				1E1C72B52A13566F001F3360 /* Dog.m in Sources */,
 				1E1C72B32A134D61001F3360 /* MyClass.m in Sources */,
 				1E1C72AB2A134156001F3360 /* main.m in Sources */,

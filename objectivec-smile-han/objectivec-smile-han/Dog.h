@@ -14,9 +14,8 @@
 #import <Foundation/Foundation.h>
 @interface Dog: NSObject
 {
-    int age;
+//    int age;
 }
--(void)setAge:(int)a;
--(int)getAge;
+@property int age;
 -(void)show;
 @end
